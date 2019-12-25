@@ -1,0 +1,22 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class M_guru extends CI_Model {
+
+	function datadiri_save() {
+		$this->db->set($_POST);
+		
+		if (!empty(@$_POST['guru_id'])) {
+			$this->db->where('guru_id', $data['guru_id']);
+			$this->db->update('guru');
+		} else {
+			$this->db->insert('guru');
+		}
+
+		return $this->db->affected_rows();
+	}
+
+}
+
+/* End of file M_guru.php */
+/* Location: ./application/modules/guru/models/M_guru.php */

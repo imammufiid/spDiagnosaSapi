@@ -1,0 +1,122 @@
+<?php 
+  $_sys_setting = $this->db->get('_sys_setting')->row();
+?>
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="<?= $_sys_setting->setting_web_icon ?>" />
+  <title><?php echo $_sys_setting->setting_web_name ?> | Login Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style type="text/css">
+      .pace {
+        -webkit-pointer-events: none;
+        pointer-events: none;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .pace-inactive {
+        display: none;
+      }
+
+      .pace .pace-progress {
+        background: #29d;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+      }
+
+    </style>
+
+  <!-- Font Awesome -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fontawesome/css/all.min.css') ?>">
+  <link href="<?= base_url() ?>assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url('assets') ?>/css/adminlte.min.css">
+  <script src="<?= base_url() ?>assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets/js/pace.min.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets/vendors/general/toastr/build/toastr.min.js" type="text/javascript"></script>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+  
+</head>
+<body class="hold-transition login-page">
+<div class="login-box" style="margin: 3% auto;">
+  <div class="login-logo">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <img style="width: 40%; height: auto;" src="<?= base_url() . $_sys_setting->setting_web_logo ?>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 ">
+        <div>APP WEBs<b style="letter-spacing:1.5px;"><br/><h4><?= $_sys_setting->setting_web_name ?></h4></b></div>
+      </div>
+    </div>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+      <form id="form" action="<?php echo base_url('auth/check_login') ?>">
+        <div class="form-group has-feedback">
+          <label>Username/Email</label>
+          <div class="input-group">
+              <input type="text" autocomplete="off" id="username" name="email" class="form-control" placeholder="Masukkan Username/Email">
+              <div class="input-group-append">
+                <span class="input-group-text form-control-feedback"><i class="fa fa-user"></i></span>
+              </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <label>Passsword</label>
+          <div class="input-group">
+              <input type="password" autocomplete="off" id="password" name="password" class="form-control" placeholder="Masukkan Password">
+              <div class="input-group-append">
+                <span class="input-group-text form-control-feedback"><i class="fa fa-key"></i></span>
+              </div>
+          </div>
+        </div>
+        <div><hr></div>
+        <div class="d-block" align="center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+</body>
+
+<script type="text/javascript">
+  $('#form').submit(function(event) {
+    $.post($(this).attr('action'), $(this).serialize(), function(response, textStatus, xhr) {
+      if (response.status == true) {
+        toastr.success(response.msg);
+        setTimeout(function() {
+          window.location.href = "<?php echo base_url('dashboard') ?>";
+        }, 2000);
+      } else {
+        toastr.error(response.msg);
+      }
+    }, "json");
+    return false;
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ajaxStart(function() { 
+         Pace.restart(); 
+  });
+</script>
+
+</html>
