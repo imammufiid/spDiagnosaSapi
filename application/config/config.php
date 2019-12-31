@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost/dataterpilah/';
-$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/__coreMetronig11';
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/uassp';
 
 /*
 |--------------------------------------------------------------------------
