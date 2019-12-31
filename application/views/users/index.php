@@ -2,6 +2,7 @@
 	#tabel-data tr th {
 		white-space: nowrap;
 	}
+
 	#tabel-data tr td {
 		white-space: nowrap;
 	}
@@ -51,26 +52,26 @@
 
 <!--begin::Modal-->
 <div class="modal fade" id="modal_delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Peringatan !</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <form id="form-delete" method="post">
-	            <div class="modal-body">
-	            	<div id="modal-body-delete">
-	            		
-	            	</div>
-	            </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-	                <button type="submit" class="btn btn-google">Hapus</button>
-	            </div>
-            </form>
-        </div>
-    </div>
+	<div class="modal-dialog modal-md" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Peringatan !</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<form id="form-delete" method="post">
+				<div class="modal-body">
+					<div id="modal-body-delete">
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+					<button type="submit" class="btn btn-google">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <!--end::Modal-->
 
@@ -78,28 +79,65 @@
 	$(document).ready(function() {
 
 		$('#tabel-data').dataTable({
-			ajax:{url:"<?php echo base_url('core/users_fetch') ?>",dataSrc:"data","type": "POST"},
+			ajax: {
+				url: "<?php echo base_url('core/users_fetch') ?>",
+				dataSrc: "data",
+				"type": "POST"
+			},
 			processing: true,
-        	serverSide: true,
-			columns: [
-				{data: null, render: function(data, row, columns, meta) {
-					return meta.row + 1;
-				}, searchable: false},
-				{data: 'group_label'},
-				{data: 'user_firstname'},
-				{data: 'user_lastname'},
-				{data: 'user_birth'},
-				{data: 'user_phone'},
-				{data: 'user_email'},
-				{data: 'user_username'},
-				{data: 'status_label'},
-				{data: null, render: function(data, row, columns, meta){
-					var dt_btn_utils = $('#dt_btn_utils').clone();
-					var url = "<?php echo base_url('core/users_edit') ?>/?id=";
-					dt_btn_utils.find('.dt-edit').attr('href', url+data.user_id);
-					dt_btn_utils.find('.dt-delete').attr({'target-id': data.user_id, 'onclick': 'dt_delete(this)'});
-					return dt_btn_utils.html();
-				}, searchable: false},
+			serverSide: true,
+			columns: [{
+					data: null,
+					render: function(data, row, columns, meta) {
+						return meta.row + 1;
+					},
+					searchable: false
+				},
+				{
+					data: 'group_label'
+				},
+				{
+					data: 'user_firstname'
+				},
+				{
+					data: 'user_lastname'
+				},
+				{
+					data: 'user_birth'
+				},
+				{
+					data: 'user_phone'
+				},
+				{
+					data: 'user_email'
+				},
+				{
+					data: 'user_username'
+				},
+				{
+					data: 'status_label',
+					render: function(data, type, row, meta) {
+						if (data == "Aktif") {
+							return "<span class='kt-badge kt-badge--success  kt-badge--lg kt-badge--inline'>Aktif</span>";
+						} else {
+							return '<span class="kt-badge kt-badge--warning  kt-badge--lg kt-badge--inline">Non-Aktif</span>';
+						}
+					}
+				},
+				{
+					data: null,
+					render: function(data, row, columns, meta) {
+						var dt_btn_utils = $('#dt_btn_utils').clone();
+						var url = "<?php echo base_url('core/users_edit') ?>/?id=";
+						dt_btn_utils.find('.dt-edit').attr('href', url + data.user_id);
+						dt_btn_utils.find('.dt-delete').attr({
+							'target-id': data.user_id,
+							'onclick': 'dt_delete(this)'
+						});
+						return dt_btn_utils.html();
+					},
+					searchable: false
+				},
 			],
 		});
 
@@ -119,7 +157,9 @@
 	});
 
 	function dt_delete(t) {
-		$.get('<?php echo base_url('core/users_modal/modal_delete') ?>', {'user_id': $(t).attr('target-id')}).done(function(data) {
+		$.get('<?php echo base_url('core/users_modal/modal_delete') ?>', {
+			'user_id': $(t).attr('target-id')
+		}).done(function(data) {
 			$('#modal-body-delete').html(data);
 			$('#modal_delete').modal('show');
 		});

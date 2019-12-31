@@ -42,77 +42,113 @@
 
 <!--begin::Modal Manage-->
 <div class="modal fade" id="modal_sidebar" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Form</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <form id="form-sidebar-manage" method="post">
-	            <div class="modal-body">
-	            	<div id="modal-body-sidebar">
-	            		
-	            	</div>
-	            </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-	                <button type="submit" class="btn btn-success">Simpan</button>
-	            </div>
-            </form>
-        </div>
-    </div>
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Form</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<form id="form-sidebar-manage" method="post">
+				<div class="modal-body">
+					<div id="modal-body-sidebar">
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+					<button type="submit" class="btn btn-success">Simpan</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <!--end::Modal Manage-->
 
 <!--begin::Modal Delete-->
 <div class="modal fade" id="modal_delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Form</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <form id="form-sidebar-delete" method="post">
-	            <div class="modal-body">
-	            	<div id="modal-body-delete">
-	            		
-	            	</div>
-	            </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-	                <button type="submit" class="btn btn-google">Hapus</button>
-	            </div>
-            </form>
-        </div>
-    </div>
+	<div class="modal-dialog modal-md" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel2">Form</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<form id="form-sidebar-delete" method="post">
+				<div class="modal-body">
+					<div id="modal-body-delete">
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+					<button type="submit" class="btn btn-google">Hapus</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <!--end::Modal Delete-->
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#tabel-data').dataTable({
-			ajax:{url:"<?php echo base_url('core/sidebars_fetch') ?>",dataSrc:"data","type": "POST"},
+			ajax: {
+				url: "<?php echo base_url('core/sidebars_fetch') ?>",
+				dataSrc: "data",
+				"type": "POST"
+			},
 			processing: true,
-        	serverSide: true,
-			columns: [
-				{data: null, render: function(data, row, columns, meta) {
-					return meta.row + 1;
-				}, searchable: false},
-				{data: 'sidebar_parent_label'},
-				{data: 'sidebar_label'},
-				{data: 'sidebar_href'},
-				{data: null, render(data, row, columns, meta){
-					return '<i class="'+data.sidebar_icon+'"></i>';
-				}, searchable: false},
-				{data: 'status_label'},
-				{data: null, render: function(data, row, columns, meta){
-					var dt_btn_utils = $('#dt_btn_utils').clone();
-					dt_btn_utils.find('.dt-edit').attr({'target-id': data.sidebar_id, 'onclick': 'dt_edit(this)'});
-					dt_btn_utils.find('.dt-delete').attr({'target-id': data.sidebar_id, 'onclick': 'dt_delete(this)'});
-					return dt_btn_utils.html();
-				}, searchable: false},
+			serverSide: true,
+			columns: [{
+					data: null,
+					render: function(data, row, columns, meta) {
+						return meta.row + 1;
+					},
+					searchable: false
+				},
+				{
+					data: 'sidebar_parent_label'
+				},
+				{
+					data: 'sidebar_label'
+				},
+				{
+					data: 'sidebar_href'
+				},
+				{
+					data: null,
+					render(data, row, columns, meta) {
+						return '<i class="' + data.sidebar_icon + '"></i>';
+					},
+					searchable: false
+				},
+				{
+					data: 'status_label',
+					render: function(data, type, row, meta) {
+						if (data == "Aktif") {
+							return "<span class='kt-badge kt-badge--success  kt-badge--lg kt-badge--inline'>Aktif</span>";
+						} else {
+							return '<span class="kt-badge kt-badge--warning  kt-badge--lg kt-badge--inline">Non-Aktif</span>';
+						}
+					}
+				},
+				{
+					data: null,
+					render: function(data, row, columns, meta) {
+						var dt_btn_utils = $('#dt_btn_utils').clone();
+						dt_btn_utils.find('.dt-edit').attr({
+							'target-id': data.sidebar_id,
+							'onclick': 'dt_edit(this)'
+						});
+						dt_btn_utils.find('.dt-delete').attr({
+							'target-id': data.sidebar_id,
+							'onclick': 'dt_delete(this)'
+						});
+						return dt_btn_utils.html();
+					},
+					searchable: false
+				},
 			],
 		});
 
@@ -152,14 +188,18 @@
 	}
 
 	function dt_edit(t) {
-		$.get('<?php echo base_url('core/sidebars_modal/modal_edit') ?>', {'sidebar_id':$(t).attr('target-id')}).done(function(data) {
+		$.get('<?php echo base_url('core/sidebars_modal/modal_edit') ?>', {
+			'sidebar_id': $(t).attr('target-id')
+		}).done(function(data) {
 			$('#modal-body-sidebar').html(data);
 			$('#modal_sidebar').modal('show');
 		});
 	}
 
-	function dt_delete(t){
-		$.get('<?php echo base_url('core/sidebars_modal/modal_delete') ?>', {'sidebar_id':$(t).attr('target-id')}).done(function(data) {
+	function dt_delete(t) {
+		$.get('<?php echo base_url('core/sidebars_modal/modal_delete') ?>', {
+			'sidebar_id': $(t).attr('target-id')
+		}).done(function(data) {
 			$('#modal-body-delete').html(data);
 			$('#modal_delete').modal('show');
 		});
