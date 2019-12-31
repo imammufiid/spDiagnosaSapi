@@ -90,6 +90,7 @@
 <!--end:: Global Optional Vendors -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
+<!-- <script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js" type="text/javascript"></script> -->
 <script src="<?= base_url() ?>assets/js/scripts.bundle.js" type="text/javascript"></script>
 
 <!--end::Global Theme Bundle -->
@@ -98,6 +99,8 @@
 <script src="<?= base_url() ?>assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>assets/vendors/custom/gmaps/gmaps.js" type="text/javascript"></script>
 
+<!-- <script src="<?= base_url() ?>assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js" type="text/javascript"></script> -->
+<!-- <script src="<?= base_url() ?>assets/js/pages/crud/forms/editors/ckeditor-classic.js" type="text/javascript"></script> -->
 <!--end::Page Vendors -->
 
 <script type="text/javascript">

@@ -38,7 +38,9 @@
 <!--end:: Global Optional Vendors -->
 
 <!--begin::Global Theme Styles(used by all pages) -->
+<!-- <link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" /> -->
 <link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
 
 <!--end::Global Theme Styles -->
 
@@ -68,5 +70,27 @@
   right: 100%;
   width: 100%;
   height: 2px;
+}
+
+.float {
+    background: #605ca8;
+    color: white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14pt;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 70px;
+    right: 40px;
+    background-color: #605ca8;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    margin-top: 32px;
 }
 </style>

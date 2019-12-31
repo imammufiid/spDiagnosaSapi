@@ -66,7 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
 			<div class="kt-header-mobile__logo">
 				<a href="javascript:(0)">
-					<img alt="Logo" src="<?= base_url($_settings->setting_web_logo) ?>" />
+					<img alt="Logo" width="40px" src="<?= base_url($_settings->setting_web_logo) ?>" />
 				</a>
 			</div>
 			<div class="kt-header-mobile__toolbar">
