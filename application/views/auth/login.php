@@ -59,7 +59,7 @@
     </div>
     <div class="row">
       <div class="col-12 ">
-        <div>APP WEBs<b style="letter-spacing:1.5px;"><br/><h4><?= $_sys_setting->setting_web_name ?></h4></b></div>
+        <div>SISTEM PAKAR<b style="letter-spacing:1.5px;"><br/><h4>Diagnosa Penyakit Ayam Metode Certainty Factor</h4></b></div>
       </div>
     </div>
   </div>
