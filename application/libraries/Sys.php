@@ -35,6 +35,26 @@ class Sys
 		$this->_ci->load->view('_templates/layout', $sys, FALSE);
 	}
 
+	function render_metronic_home($html, $data = array()) {
+		$router['_settings']			= $this->_ci->db->get('_sys_setting')->row();
+		$router['_page_title']			= @$data['_page_title'];
+		$router['_render_page_title']	= ($router['_page_title']) ? $router['_page_title'] : $this->render_metronic_page_title();
+		$sys = $router;
+		$sys['_css'] 				= $this->_ci->load->view('_templates_home/css', NULL, TRUE);
+		$data['_render_menu_label']	= $this->render_metronic_page_label();
+		$sys['_css_custom'] 		= $this->render_custom_css();
+		$sys['_javascript_top'] 	= $this->_ci->load->view('_templates_home/javascript_top', NULL, TRUE);
+		$sys['_javascript_top_custom']	= $this->render_javascript_top_custom();
+		$sys['_navbar_left'] 			= $this->_ci->load->view('_templates_home/navbar_left', $router, TRUE);
+		$sys['_navbar_right'] 			= $this->_ci->load->view('_templates_home/navbar_right', $router, TRUE);
+		$sys['_sidebar'] 			= $this->_ci->load->view('_templates_home/sidebar', $router, TRUE);
+		$sys['_footer'] 			= $this->_ci->load->view('_templates_home/footer', $router, TRUE);
+		$sys['_javascript_bottom']	= $this->_ci->load->view('_templates_home/javascript_bottom', NULL, TRUE);
+		$sys['_javascript_bottom_custom']	= $this->render_javascript_bottom_custom();
+		$sys['_content']			= $this->_ci->load->view($html, $data, TRUE);
+		$this->_ci->load->view('_templates_home/layout', $sys, FALSE);
+	}
+
 	function render_metronic_modal($html, $data = array()) {
 		echo $this->render_custom_css();
 		echo $this->render_javascript_top_custom();
