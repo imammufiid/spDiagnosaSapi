@@ -104,7 +104,7 @@
 					render: function(data, row, columns, meta) {
 						return meta.row + 1;
 					},
-					
+					searchable: false
 				},
 				{
 					data: 'penyakit',					

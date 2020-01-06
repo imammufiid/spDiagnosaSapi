@@ -21,7 +21,7 @@ class M_penyakit extends CI_Model
 			} else {
 				$gambar = $this->_uploudEditImage();
 				$this->db->set('gambar', $gambar);
-				unlink(FCPATH . 'assets/media/penyakit/' . $gambar_old);
+				unlink(FCPATH . 'assets/media/penyakit/pkt/' . $gambar_old);
 			}
 			$this->db->set('nama_penyakit', $nama);
 			$this->db->set('det_penyakit', $det);
