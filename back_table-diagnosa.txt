@@ -1,0 +1,35 @@
+<!-- <tbody> -->
+								<!-- <?php $no = 1; ?>
+								<?php foreach ($gejala as $key => $val) : ?>
+									<tr>
+										<td><?= $no; ?></td>
+										<td>G<?= str_pad($val->kode_gejala, 3, '0', STR_PAD_LEFT);  ?></td>
+										<td><?= $val->nama_gejala ?></td>
+										<td>
+											<select name="kondisi[]" id="kondisi_<?= $no ?>" class="form-control opsiKondisi">
+												<option value selected disabled>-- Pilih Jika Sesuai --</option>
+												<?php foreach ($kondisi as $key => $var) : ?>
+													<option data-id="<?php echo $var->id; ?>" value="<?= $val->kode_gejala . '_' . $var->id ?>"><?= $var->kondisi ?></option>
+												<?php endforeach; ?>
+											</select>
+										</td>
+										<script>
+											$(document).ready(function() {
+												let arcolor = new Array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
+												setColor();
+												$('#table_diagnosa').on('change', 'tr td select#kondisi_<?php echo $no; ?>', function() {
+													setColor();
+												});
+
+												function setColor() {
+													var selectedItem = $('tr td select#kondisi_<?php echo $no; ?> :selected');
+													var color = arcolor[selectedItem.data("id")];
+													$('tr td select#kondisi_<?php echo $no; ?>.opsiKondisi').css('background-color', color);
+													console.log(color);
+												}
+											})
+										</script>
+									</tr>
+									<?php $no++; ?>
+								<?php endforeach; ?> -->
+							<!-- </tbody> -->
