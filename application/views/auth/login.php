@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="shortcut icon" href="<?= $_sys_setting->setting_web_icon ?>" />
+  <link rel="shortcut icon" href="<?= base_url(). $_sys_setting->setting_web_icon ?>" />
   <title><?php echo $_sys_setting->setting_web_name ?> | Login Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@
     </div>
     <div class="row">
       <div class="col-12 ">
-        <div>SISTEM PAKAR<b style="letter-spacing:1.5px;"><br/><h4>Diagnosa Penyakit Ayam Metode Certainty Factor</h4></b></div>
+        <div>SISTEM PAKAR<b style="letter-spacing:1.5px;"><br/><h4>Diagnosa Penyakit Sapi Metode Certainty Factor</h4></b></div>
       </div>
     </div>
   </div>
@@ -76,6 +76,7 @@
                 <span class="input-group-text form-control-feedback"><i class="fa fa-user"></i></span>
               </div>
           </div>
+          <small id="emailHelp" class="form-text text-muted ml-1">username user : user.</small>
         </div>
         <div class="form-group has-feedback">
           <label>Passsword</label>
@@ -84,7 +85,9 @@
               <div class="input-group-append">
                 <span class="input-group-text form-control-feedback"><i class="fa fa-key"></i></span>
               </div>
+              
           </div>
+          <small id="emailHelp" class="form-text text-muted ml-1">password user : password.</small>
         </div>
         <div><hr></div>
         <div class="d-block" align="center">
