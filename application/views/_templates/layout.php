@@ -91,7 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<img alt="Logo" style="width: 40px" src="<?= base_url($_settings->setting_web_logo) ?>" />
 									</a>
 								</div>
-									<span class="ml-3"><h3 class="m-0 text-white">Aplikasi Web</h3></span>
+									<span class="ml-3"><h3 class="m-0 text-white">SISTEM PAKAR</h3></span>
 							</div>
 
 							<!-- end:: Brand -->

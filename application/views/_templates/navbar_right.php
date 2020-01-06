@@ -7,7 +7,7 @@
 									<span class="kt-hidden kt-header__topbar-welcome">Hi,</span>
 									<span class="kt-hidden kt-header__topbar-username">Nick</span>
 									<img class="kt-hidden" alt="Pic" src="<?= base_url() ?>assets/media/users/300_21.jpg" />
-									<span class="kt-header__topbar-icon kt-hidden-"><i class="text-white flaticon2-user-outline-symbol"></i></span>
+									<span class="kt-header__topbar-icon kt-hidden-"><i class="text-black flaticon2-user-outline-symbol"></i></span>
 								</div>
 								<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
 

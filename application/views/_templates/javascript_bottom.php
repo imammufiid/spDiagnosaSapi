@@ -99,9 +99,13 @@
 <script src="<?= base_url() ?>assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>assets/vendors/custom/gmaps/gmaps.js" type="text/javascript"></script>
 
-<!-- <script src="<?= base_url() ?>assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js" type="text/javascript"></script> -->
-<!-- <script src="<?= base_url() ?>assets/js/pages/crud/forms/editors/ckeditor-classic.js" type="text/javascript"></script> -->
-<!--end::Page Vendors -->
+<script src="<?= base_url('assets/js/ckeditor/') ?>ckeditor.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>highcharts.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>modules/data.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>modules/drilldown.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>modules/exporting.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>modules/export-data.js"></script>
+<script src="<?= base_url('assets/js/highchart/') ?>modules/accessibility.js"></script>
 
 <script type="text/javascript">
 	$(document).ajaxStart(function() { 

@@ -49,30 +49,30 @@
 <!--end::Layout Skins -->
 
 <style type="text/css">
-.pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
+  .pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
 
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
-.pace-inactive {
-  display: none;
-}
+  .pace-inactive {
+    display: none;
+  }
 
-.pace .pace-progress {
-  background: #29d;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  right: 100%;
-  width: 100%;
-  height: 2px;
-}
+  .pace .pace-progress {
+    background: #29d;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+  }
 
-.float {
+  .float {
     background: #605ca8;
     color: white;
     border-top: 0;
@@ -92,5 +92,55 @@
     text-align: center;
     box-shadow: 2px 2px 3px #999;
     margin-top: 32px;
-}
+  }
+
+  .highcharts-figure,
+  .highcharts-data-table table {
+    min-width: 100%;
+    /* max-width: 100%; */
+    margin: 1em auto;
+  }
+
+  #container {
+    height: 500px;
+    /* width: 100%; */
+    /* padding-top: 16px;
+    padding-bottom: 16px; */
+  }
+
+  .highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    /* max-width: 500px; */
+  }
+
+  .highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+  }
+
+  .highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+  }
+
+  .highcharts-data-table td,
+  .highcharts-data-table th,
+  .highcharts-data-table caption {
+    padding: 0.5em;
+  }
+
+  .highcharts-data-table thead tr,
+  .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+  }
+
+  .highcharts-data-table tr:hover {
+    background: #f1f7ff;
+  }
 </style>
