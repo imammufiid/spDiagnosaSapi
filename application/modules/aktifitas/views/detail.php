@@ -58,13 +58,13 @@
 			$vlpkt[$np] = $value;
 		}
 		if ($argpkt[$idpkt[1]]) {
-			$gambar = base_url('assets/media/penyakit/pkt/') . $argpkt[$idpkt[1]];
+			$gambar = base_url('assets/media/penyakit/') . $argpkt[$idpkt[1]];
 		} else {
 			$gambar = base_url('assets/media/penyakit/noimage.png');
 		}
 		?>
 		<div class='well well-small'>
-			<img class='img img-thumbnail' style='float:right; margin-left:15px;' src='<?= $gambar ?>' height='200px'>
+			<img class='img img-thumbnail' style='float:right; margin-left:15px;' src='<?= $gambar ?>' width='300px'>
 			<!-- <h3>Hasil Diagnosa</h3> -->
 			<div class='callout callout-default'>Jenis penyakit yang diderita adalah
 				<b>

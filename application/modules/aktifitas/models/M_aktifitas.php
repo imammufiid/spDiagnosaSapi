@@ -7,7 +7,7 @@ class M_aktifitas extends CI_Model
 	var $table = 'v_aktifitas'; //nama tabel dari database
 	var $column_order = ['id_hasil', 'tanggal', 'penyakit', 'gejala', 'kode_penyakit', 'nama_penyakit', 'det_penyakit', 'srn_penyakit', 'gambar', 'hasil_nilai']; //field yang ada di table user
 	var $column_search = ['id_hasil', 'tanggal', 'penyakit', 'gejala', 'kode_penyakit', 'nama_penyakit', 'det_penyakit', 'srn_penyakit', 'gambar', 'hasil_nilai']; //field yang diizin untuk pencarian 
-	var $order = array('id_hasil' => 'asc'); // default order
+	var $order = array('id_hasil' => 'desc'); // default order
 
 
   private function _get_datatables_query()
